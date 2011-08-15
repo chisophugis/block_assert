@@ -8,10 +8,7 @@ usage is as follows::
     (a)(SEQ)(of)(variables)(to)(pass)(in), (
       int foo = a;
       some_type bar(a, SEQ, in);
-      if (foo.something() != bar.mutate_in_some_way()) {
-        BLOCK_ASSERT_FAIL;
-      }
-      BLOCK_ASSERT_SUCCEED;
+      return foo.something() == bar.mutate_in_some_way();
   ));
 
 A "SEQ" is a sequence where each element is enclosed in parentheses. It is
@@ -22,11 +19,8 @@ pass in a variable and not use it though.
 The variables you pass in are made available in the block under the same
 name you passed them in with.
 
-Invoke `BLOCK_ASSERT_FAIL` or `BLOCK_ASSERT_SUCCEED` to indicate whether
-the assert failed or succeeded. One of them should be called no matter
-which control path is taken, or else the compiler is likely to complain
-about not returning a value from a function with a non-void return type (or
-worse could happen).
+The parenthesis-enclosed block passed in should return true if the
+assertion succeeds and false otherwise.
 
 See the file "example.cc" for a more-or-less real example of usage.
 

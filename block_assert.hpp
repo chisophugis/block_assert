@@ -52,8 +52,4 @@
   ? assert(true)                                         \
   : assert(msg && false))
 
-// Opaque macros to insulate the user from the implementation.
-#define BLOCK_ASSERT_FAIL return false
-#define BLOCK_ASSERT_SUCCEED return true
-
 #endif // !defined(BLOCK_ASSERT_HPP_INCLUDED)
