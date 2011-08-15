@@ -23,9 +23,8 @@
     paramseq                                               \
   )
 
-// The use of this in the SEQ_FOR_EACH_I will effectively make a new SEQ,
-// since the expansion is in parentheses. Essentially getting the same
-// effect as a "SEQ_TRANSFORM_I" function.
+// Since the expansion is in parentheses, the use of this in SEQ_FOR_EACH_I
+// will effectively make a new SEQ.
 #define BLOCK_ASSERT_CLANG_TYPE_ADD_HELPER(r, data, i, elem) \
   (BOOST_PP_CAT(T,i) elem)
 
